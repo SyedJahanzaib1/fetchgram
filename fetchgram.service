@@ -1,0 +1,17 @@
+[Unit]
+Description=FetchGram Instagram bulk downloader
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/fetchgram
+Environment="PATH=/opt/fetchgram/.venv/bin"
+ExecStart=/opt/fetchgram/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=always
+RestartSec=5
+# temp ZIPs / caches live here
+Environment="TMPDIR=/tmp"
+
+[Install]
+WantedBy=multi-user.target
