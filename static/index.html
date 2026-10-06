@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FetchGram — Instagram Bulk Downloader</title>
-<meta name="description" content="Download Instagram photos, reels and carousels in bulk. Paste a username or link, pick what you want, get a ZIP. No login, free.">
+<meta name="description" content="Download Instagram photos, reels and carousels in bulk. Paste post links, pick what you want, get a ZIP. No login, free.">
 <link rel="stylesheet" href="/styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬇️</text></svg>">
 </head>
@@ -26,7 +26,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="steps">
-        <span class="step active" data-step="1"><b>1</b> Search</span>
+        <span class="step active" data-step="1"><b>1</b> Paste link</span>
         <span class="step-arrow">→</span>
         <span class="step" data-step="2"><b>2</b> Select</span>
         <span class="step-arrow">→</span>
@@ -34,14 +34,14 @@
       </div>
 
       <h1>Instagram bulk downloader</h1>
-      <p class="sub">Paste a <b>@username</b> or an Instagram link — pick the photos,
+      <p class="sub">Paste Instagram post or reel links — pick the photos,
         reels and carousels you want, and download them in original quality.
         No login. No watermarks. Free.</p>
 
       <form id="searchForm" class="searchbar" autocomplete="off">
         <span class="search-ico">🔎</span>
         <input id="searchInput" type="text" spellcheck="false"
-               placeholder="@username, profile link, or post link — or paste several links, one per line…">
+               placeholder="Paste post or reel links — one per line for bulk download…">
         <button type="submit" id="searchBtn">Fetch</button>
       </form>
       <p class="hint">Tip: paste multiple post links separated by spaces or new lines to build a bulk list.</p>
@@ -99,9 +99,9 @@
     <div class="wrap">
       <h2>How it works</h2>
       <div class="cards3">
-        <div class="card"><div class="card-ico">🔎</div><h3>Search</h3>
-          <p>Type any public <b>@username</b> — or paste one link, or a whole list of links.
-          Posts load into a grid, newest first.</p></div>
+        <div class="card"><div class="card-ico">🔎</div><h3>Fetch</h3>
+          <p>Paste one link, or a whole list of links (one per line).
+          Posts load into a grid — photos, reels and carousels.</p></div>
         <div class="card"><div class="card-ico">☑️</div><h3>Select</h3>
           <p>Tap the posts you want, or select everything at once. Filter by photos,
           reels or carousels to find things fast.</p></div>
@@ -137,7 +137,7 @@
       <h3 class="devices-h">On your device</h3>
       <div class="cards3">
         <div class="card"><h3>📱 iPhone</h3>
-          <p>Open FetchGram in Safari, paste a username or link, and download.
+          <p>Open FetchGram in Safari, paste a post or reel link, and download.
           The ZIP lands in the Files app — tap it to unzip and view every file.</p></div>
         <div class="card"><h3>🤖 Android</h3>
           <p>In Chrome the ZIP saves straight to your Downloads folder. Any file
@@ -154,10 +154,10 @@
     <div class="wrap narrow">
       <h2>FAQ</h2>
       <div class="faq">
-        <details><summary>How do I download posts from an Instagram profile?</summary>
-          <p>Type the profile's @username in the search bar above. Its public posts
-          load into a grid — tick what you want and hit Download. A profile link
-          works too.</p></details>
+        <details><summary>How do I download an Instagram post?</summary>
+          <p>Paste the post, reel or carousel link in the search bar above. It
+          loads into a grid — tick what you want and hit Download. You can paste
+          several links at once (one per line) to build a bulk list.</p></details>
         <details><summary>Can I download with just a post link?</summary>
           <p>Yes. Paste any public post, reel or carousel link and it resolves to
           the same grid. You can paste several links at once to build a bulk list.</p></details>
