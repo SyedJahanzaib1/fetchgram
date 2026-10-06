@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FetchGram — Instagram Bulk Downloader</title>
+<meta name="description" content="Download Instagram photos, reels and carousels in bulk. Paste a username or link, pick what you want, get a ZIP. No login, free.">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬇️</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="logo" href="/">⬇️ FetchGram</a>
+    <nav class="topnav">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="steps">
+        <span class="step active" data-step="1"><b>1</b> Search</span>
+        <span class="step-arrow">→</span>
+        <span class="step" data-step="2"><b>2</b> Select</span>
+        <span class="step-arrow">→</span>
+        <span class="step" data-step="3"><b>3</b> Download</span>
+      </div>
+
+      <h1>Instagram bulk downloader</h1>
+      <p class="sub">Paste a <b>@username</b> or an Instagram link — pick the photos,
+        reels and carousels you want, and download them in original quality.
+        No login. No watermarks. Free.</p>
+
+      <form id="searchForm" class="searchbar" autocomplete="off">
+        <span class="search-ico">🔎</span>
+        <input id="searchInput" type="text" spellcheck="false"
+               placeholder="@username, profile link, or post link — or paste several links, one per line…">
+        <button type="submit" id="searchBtn">Fetch</button>
+      </form>
+      <p class="hint">Tip: paste multiple post links separated by spaces or new lines to build a bulk list.</p>
+
+      <div id="errorBox" class="error hidden"></div>
+      <div id="loadingBox" class="loading hidden"><span class="spinner"></span><span id="loadingText">Fetching…</span></div>
+
+      <!-- profile card -->
+      <div id="profileCard" class="profile-card hidden">
+        <img id="profAvatar" class="avatar" alt="">
+        <div class="prof-meta">
+          <div class="prof-name"><span id="profName"></span> <span id="profVerified" class="verified hidden">✔</span></div>
+          <div class="prof-user" id="profUser"></div>
+          <div class="prof-bio" id="profBio"></div>
+          <div class="prof-stats">
+            <span><b id="statPosts"></b> posts</span>
+            <span><b id="statFollowers"></b> followers</span>
+            <span><b id="statFollowing"></b> following</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- toolbar -->
+      <div id="toolbar" class="toolbar hidden">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-filter="all">All</button>
+          <button class="tab" data-filter="photo">Photos</button>
+          <button class="tab" data-filter="reel">Reels</button>
+          <button class="tab" data-filter="carousel">Carousels</button>
+        </div>
+        <div class="sel-actions">
+          <button id="selectAllBtn" class="linkbtn">Select all</button>
+          <button id="clearBtn" class="linkbtn">Clear</button>
+        </div>
+      </div>
+
+      <!-- grid -->
+      <div id="grid" class="grid"></div>
+      <div class="more-wrap hidden" id="moreWrap">
+        <button id="loadMoreBtn" class="btn ghost">Load more</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- sticky download bar -->
+  <div id="dlbar" class="dlbar hidden">
+    <div class="wrap dlbar-in">
+      <span><b id="selCount">0</b> selected</span>
+      <button id="downloadBtn" class="btn primary">⬇ Download</button>
+    </div>
+  </div>
+
+  <!-- HOW -->
+  <section id="how" class="section">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="cards3">
+        <div class="card"><div class="card-ico">🔎</div><h3>Search</h3>
+          <p>Type any public <b>@username</b> — or paste one link, or a whole list of links.
+          Posts load into a grid, newest first.</p></div>
+        <div class="card"><div class="card-ico">☑️</div><h3>Select</h3>
+          <p>Tap the posts you want, or select everything at once. Filter by photos,
+          reels or carousels to find things fast.</p></div>
+        <div class="card"><div class="card-ico">📦</div><h3>Download</h3>
+          <p>One file downloads directly. Multiple files arrive as a single ZIP —
+          photos as JPG, videos as MP4 with sound.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section alt">
+    <div class="wrap">
+      <h2>Why FetchGram</h2>
+      <div class="cards3">
+        <div class="card"><div class="card-ico">🔒</div><h3>Private by design</h3>
+          <p>No Instagram login, no password, no account connection. We don't keep
+          a library of your downloads.</p></div>
+        <div class="card"><div class="card-ico">🖼️</div><h3>Original quality</h3>
+          <p>Files come straight from Instagram's servers at the best available
+          quality — no recompression, no watermarks.</p></div>
+        <div class="card"><div class="card-ico">🎠</div><h3>Full carousels</h3>
+          <p>Carousel posts download as every slide — not just the cover image.</p></div>
+        <div class="card"><div class="card-ico">📱</div><h3>Works everywhere</h3>
+          <p>Runs in the browser on iPhone, Android and desktop. Nothing to install.</p></div>
+        <div class="card"><div class="card-ico">⚡</div><h3>Bulk lists</h3>
+          <p>Paste a stack of links at once and fetch them all in one go, then
+          download everything as one ZIP.</p></div>
+        <div class="card"><div class="card-ico">💸</div><h3>Free</h3>
+          <p>No accounts, no credits, no subscriptions. Just paste and download.</p></div>
+      </div>
+
+      <h3 class="devices-h">On your device</h3>
+      <div class="cards3">
+        <div class="card"><h3>📱 iPhone</h3>
+          <p>Open FetchGram in Safari, paste a username or link, and download.
+          The ZIP lands in the Files app — tap it to unzip and view every file.</p></div>
+        <div class="card"><h3>🤖 Android</h3>
+          <p>In Chrome the ZIP saves straight to your Downloads folder. Any file
+          manager can open it — no extra apps needed.</p></div>
+        <div class="card"><h3>💻 PC / Mac</h3>
+          <p>The big screen is best for browsing large grids. The ZIP downloads to
+          your default folder and unzips with built-in tools.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap narrow">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>How do I download posts from an Instagram profile?</summary>
+          <p>Type the profile's @username in the search bar above. Its public posts
+          load into a grid — tick what you want and hit Download. A profile link
+          works too.</p></details>
+        <details><summary>Can I download with just a post link?</summary>
+          <p>Yes. Paste any public post, reel or carousel link and it resolves to
+          the same grid. You can paste several links at once to build a bulk list.</p></details>
+        <details><summary>What quality are the downloads?</summary>
+          <p>The best quality Instagram serves for that post — photos as JPG,
+          videos as MP4 with their original audio.</p></details>
+        <details><summary>Do I need to log in to Instagram?</summary>
+          <p>Never. FetchGram doesn't ask for your Instagram credentials and never
+          touches your account.</p></details>
+        <details><summary>Can I download private profiles?</summary>
+          <p>No. Only public profiles and posts work. Private content is never
+          served publicly by Instagram, so no tool can fetch it.</p></details>
+        <details><summary>Is it legal to download Instagram posts?</summary>
+          <p>The content belongs to whoever created it. Only download content you
+          own or have permission to use — downloading doesn't give you rights in
+          it, and reposting or commercial use without permission can infringe copyright.</p></details>
+        <details><summary>Why did a download fail?</summary>
+          <p>Usually the post was deleted, the account went private, or Instagram
+          is temporarily rate-limiting requests. Wait a few minutes and try again.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="logo">⬇️ FetchGram</div>
+    <p class="disclaimer">Only download content you own or have the rights to use.
+      Public profiles only — private accounts are never accessible.
+      Not affiliated with Instagram or Meta.</p>
+    <p class="copy">© 2026 FetchGram</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
